@@ -1,0 +1,145 @@
+$Darkcyan: hsl(185, 75%, 39%);
+$Verydarkdesaturatedblue: hsl(229, 23%, 23%);
+$Darkgrayishblue: hsl(227, 10%, 46%);
+$Darkgray: hsl(0, 0%, 59%);
+// 
+@mixin relative($top, $left) {
+    position: relative; top : $top ; left : $left;
+}
+@mixin pattern($url,$left,$top,$width,$height) {
+    background-image: url($url);
+    width: $width;
+    height: $height;
+    overflow: hidden;
+    background-position: $left $top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+}
+// 
+*{
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+body{
+    @include relative(0, 0);
+    width: 100%; min-height: 100vh; height: auto;
+    font-size: 18px;
+    font-family: 'Kumbh Sans';
+    font-weight: 400;
+    background-color: $Darkcyan;
+}
+.background-top{
+    position: absolute; top: 0; left: 0;
+    @include pattern('images/bg-pattern-top.svg',-19.8vw , -35.5vw,67.917vw,67.917vw);
+}
+.background-bottom{
+    position: absolute; bottom: 0; right: 0%;
+    @include pattern('images/bg-pattern-bottom.svg',15.8vw , 44vw,67.917vw,67.917vw);
+}
+// 
+main{
+    overflow: hidden;
+    width: 100%; min-height: 100vh; height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    section{
+        @include relative(0, 0);
+        width: 22rem;
+        height: 23.5rem;
+        border-radius: 1rem;
+        background-color: white;
+        box-shadow: 0px 0px 6rem -2.5rem $Verydarkdesaturatedblue;
+        .cardPatern{
+            position: absolute; top: 0; left: 0;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            @include pattern('images/bg-pattern-card.svg', 0px, 0px, 100%, 8.8rem);
+            z-index: 0;
+        }
+        .person{
+            @include relative(5.4rem,0);
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .img_box{
+                width: 6.5rem; height: 6.5rem;
+                border: .25rem solid white;
+                border-radius: 100px;
+                img{
+                    width:6rem; height: 6rem;
+                    border-radius: 100px;
+                }
+            }
+            .name{
+                @include relative(1.6rem, 0rem);
+                display : flex;
+                flex-direction: row;
+                h2{
+                    color: $Verydarkdesaturatedblue;
+                    font-size: 1.15rem;
+                    margin-right: .5rem;
+                    font-weight: 700;
+                }
+                p{
+                    color: $Darkgrayishblue;
+                }
+            }
+            .city{
+                @include relative(2.2rem, 0);
+                font-size: .9rem;
+                p{
+                    color: $Darkgrayishblue;
+                }
+            }
+            .media{
+                @include relative(3.8rem, 0);
+                border-top: 1px solid $Darkgray;
+                padding-top: 1.8rem;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 2.3rem;
+                padding-right: 2.3rem;
+                width: 100%;
+                .media_item{
+                    width: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h3{
+                        color:$Verydarkdesaturatedblue;
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                    }
+                    p{
+                        color: $Darkgray;
+                        margin-top: .5rem;
+                        font-size: .7rem;
+                        letter-spacing: .1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .background-top{
+        @include pattern('images/bg-pattern-top.svg',-45vw , -50vw, 100vw,90vw);
+    }
+    .background-bottom{
+        @include pattern('images/bg-pattern-bottom.svg',95vw , 9vw,150vw,90vw);
+    }
+    main{
+        section{
+            width: 20rem;
+            overflow: hidden;
+            .cardPatern{
+                @include pattern('images/bg-pattern-card.svg', 0px, 0px, 110%, 10rem);
+                z-index: 0;
+            }
+        }
+    }
+}
