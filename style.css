@@ -10,12 +10,21 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
-  height: auto;
+  min-height: 500px;
+  height: 100%;
   font-size: 18px;
   font-family: 'Kumbh Sans';
   font-weight: 400;
   background-color: #19a2ae;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .background-top {
@@ -24,7 +33,7 @@ body {
   left: 0;
   background-image: url("images/bg-pattern-top.svg");
   width: 67.917vw;
-  height: 67.917vw;
+  height: 35vw;
   overflow: hidden;
   background-position: -19.8vw -35.5vw;
   background-repeat: no-repeat;
@@ -197,7 +206,7 @@ main section .person .media .media_item h3 {
 main section .person .media .media_item p {
   color: #969696;
   margin-top: .5rem;
-  font-size: .75rem;
+  font-size: .7rem;
   letter-spacing: .1rem;
 }
 
@@ -205,7 +214,7 @@ main section .person .media .media_item p {
   .background-top {
     background-image: url("images/bg-pattern-top.svg");
     width: 100vw;
-    height: 90vw;
+    height: 90vh;
     overflow: hidden;
     background-position: -45vw -50vw;
     background-repeat: no-repeat;
@@ -236,6 +245,70 @@ main section .person .media .media_item p {
     background-size: 100%;
     z-index: -1;
     z-index: 0;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .background-top {
+    background-image: url("images/bg-pattern-top.svg");
+    width: 100vw;
+    height: 90vw;
+    overflow: hidden;
+    background-position: -40vw -40vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+  }
+  .background-bottom {
+    background-image: url("images/bg-pattern-bottom.svg");
+    width: 150vw;
+    height: 90vw;
+    overflow: hidden;
+    background-position: 90vw 0vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+  }
+  main section {
+    width: 95vw;
+    overflow: hidden;
+  }
+  main section .cardPatern {
+    background-image: url("images/bg-pattern-card.svg");
+    width: 120vw;
+    height: 120vw;
+    overflow: hidden;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: -1;
+    z-index: 0;
+  }
+  main section .person {
+    position: relative;
+    top: 4rem;
+    left: 0;
+  }
+  main section .person .name {
+    position: relative;
+    top: 2rem;
+    left: 0rem;
+  }
+  main section .person .city {
+    position: relative;
+    top: 3rem;
+    left: 0;
+  }
+  main section .person .media {
+    position: relative;
+    top: 5.5rem;
+    left: 0;
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  main section .person .media .media_item {
+    width: 33vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

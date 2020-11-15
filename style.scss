@@ -23,15 +23,18 @@ $Darkgray: hsl(0, 0%, 59%);
 }
 body{
     @include relative(0, 0);
-    width: 100%; min-height: 100vh; height: auto;
+    width: 100%; min-height: 500px; height: 100%;
     font-size: 18px;
     font-family: 'Kumbh Sans';
     font-weight: 400;
     background-color: $Darkcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .background-top{
     position: absolute; top: 0; left: 0;
-    @include pattern('images/bg-pattern-top.svg',-19.8vw , -35.5vw,67.917vw,67.917vw);
+    @include pattern('images/bg-pattern-top.svg',-19.8vw , -35.5vw,67.917vw,35vw);
 }
 .background-bottom{
     position: absolute; bottom: 0; right: 0%;
@@ -127,7 +130,7 @@ main{
 
 @media only screen and (max-width: 800px){
     .background-top{
-        @include pattern('images/bg-pattern-top.svg',-45vw , -50vw, 100vw,90vw);
+        @include pattern('images/bg-pattern-top.svg',-45vw , -50vw, 100vw,90vh);
     }
     .background-bottom{
         @include pattern('images/bg-pattern-bottom.svg',95vw , 9vw,150vw,90vw);
@@ -139,6 +142,42 @@ main{
             .cardPatern{
                 @include pattern('images/bg-pattern-card.svg', 0px, 0px, 110%, 10rem);
                 z-index: 0;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 350px){
+    .background-top{
+        @include pattern('images/bg-pattern-top.svg',-40vw , -40vw, 100vw,90vw);
+    }
+    .background-bottom{
+        @include pattern('images/bg-pattern-bottom.svg',90vw , 0vw,150vw,90vw);
+    }
+    main{
+        section{
+            width: 95vw;
+            overflow: hidden;
+            .cardPatern{
+                @include pattern('images/bg-pattern-card.svg', 0px, 0px, 120vw, 120vw);
+                z-index: 0;
+            }
+            .person{
+                @include relative(4rem,0);
+                .name{
+                    @include relative(2rem, 0rem);
+                }
+                .city{
+                    @include relative(3rem, 0);
+                }
+                .media{
+                    @include relative(5.5rem, 0);
+                    padding-top: 10vw;
+                    padding-left: 2vw;
+                    padding-right: 2vw;
+                    .media_item{
+                        width: 33vw;
+                    }
+                }
             }
         }
     }
